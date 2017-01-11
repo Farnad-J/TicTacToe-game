@@ -1,0 +1,145 @@
+/* Resetting default CSS rules */
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font: inherited;
+}
+
+body {
+  /* Setting the radial gradient background including the vendor prefixes. */
+  background: green;
+  background: radial-gradient(circle, lightyellow, green);
+  background: -webkit-radial-gradient(circle, lightyellow, green);
+  background: -moz-radial-gradient(circle, lightyellow, green);
+  /* Setting the width of the screen to fixed 700 pixels wide. */
+  min-width: 700px;
+  max-width: 700px;
+}
+
+/* Setting the properties of the Page Heading (X/O Game). There is nothing special to explain more. */
+h1 {
+  font-family: helvetica, arial, "Times New Roman", sans-serif;
+  font-size: 40px;
+  position: relative;
+  left: 260px;
+  margin: 20px 0 15px 0;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+/* This is the main div and the outmost div of a series of 13 divs.
+    The width is 458px because it includes 3 divs with 150px each and there are 2 of 4px gaps between the borders of the member divs. */
+.puzzle {
+  width: 458px;
+  margin: 0 auto;
+  position: relative;
+  left: 280px;
+}
+
+/* Even though divs are block-level elements and this rule is set by default (and may seem unnecessary),
+    it is applied here for more clarification of what is happening. These divs form rows in the puzzle. */
+.row {
+  display: block;
+}
+
+/* These divs are the actual cells which are (individually) identified using IDs, as well (below) and
+    there are 3 of them in each row of the puzzle table. */
+.cell {
+  font-size: 16px;
+  /* Makes the cells arrange horizontally. */
+  display: inline-block;
+  /* These make the divs form square rectangles. */
+  height: 150px;
+  width: 150px;
+  /* Cause the size of the divs to be a definite value (including content, padding and border). */
+  box-sizing: border-box;
+  /* Sets the background of the cells to a light gary color with 15% opacity. */
+  background-color: rgba(30, 30, 30, 0.15);
+  margin: 2px 0;
+  text-align: center;
+  /* Creates a double black line border all around the cells. Below, we will remove the unwanted borders of some cells. */
+  border: 5px double black;
+  /* The initial mouse cursor is set to pointer to give a clue to the user that cells are selectable. */
+  cursor: pointer;
+}
+
+/* These paragraph elements are utilized to show the 'X's and 'O's. In order to keep the structure of
+    the divs unchanged after adding an X or O to them during the game, we put some invisible initial values there.*/
+.cell>p {
+  /* A handwriting font is applied. */
+  font-family: 'Handlee', cursive;
+  font-size: 42px;
+  padding-top: 48px;
+  /* Initially, the paragraph elements are hidden. They will be shown with their new contents in the program, later on. */
+  visibility: hidden;
+}
+
+/* This rule removes unwanted border of some cells (divs). */
+#row1col1, #row1col2, #row1col3 {
+  border-top: 0;
+}
+
+/* This rule removes unwanted border of some cells (divs). */
+#row1col3, #row2col3, #row3col3 {
+  border-right: 0;
+}
+
+/* This rule removes unwanted border of some cells (divs). */
+#row3col1, #row3col2, #row3col3 {
+  border-bottom: 0;
+}
+
+/* This rule removes unwanted border of some cells (divs). */
+#row1col1, #row2col1, #row3col1 {
+  border-left: 0;
+}
+
+/* This is the top section of the screen containing the .info, .turn and .result. */
+.top {
+  display: inline-block;
+  height: 70px;
+  /* The content is centered. */
+  margin: 0 auto;
+}
+
+/* The ultimate result of the game (either win or draw) will be shown using this element. */
+.result {
+  padding: 5px;
+  margin-left: 15px;
+  font-size: 20px;
+  /* This div is initially hidden for obvious reason. */
+  visibility: hidden;
+  /* Sets the background to black color with 15% opacity. */
+  background: rgba(0, 0, 0, 0.15);
+  /* To avoid a conflict with other elements to the right of it, we restricted the width. */
+  max-width: 360px;
+}
+
+/* This sets the common properties of .info and .turn including position. */
+.info, .turn{
+  font-family: helvetica, arial, "Times New Roman", sans-serif;
+  font-size: 20px;
+  position: relative;
+  top: -30px;
+  left: 415px;
+  color: black;
+}
+
+/* This sets the proprietary properties of .turn which are different from above. */
+.turn {
+  text-align: center;
+  top: -20px;
+}
+
+/* This sets the property (or possibly properties) of the 'X' class which is extensively used both in the JS program
+    and in HTML file itself. */
+.X {
+  color: red;
+}
+
+/* This sets the property (or possibly properties) of the 'O' class which is extensively used both in the JS program
+    and in HTML file itself. */
+.O {
+  color: blue;
+}
